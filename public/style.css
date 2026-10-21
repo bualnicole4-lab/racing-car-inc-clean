@@ -1,1 +1,205 @@
 
+:root {
+  --bg: #080b12;
+  --panel: #111927;
+  --cyan: #00e5ff;
+  --text: #f4f7ff;
+  --muted: #9aa8bb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top, #172a42 0%, var(--bg) 65%);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+}
+
+.topbar, footer {
+  padding: 20px 6%;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.brand {
+  color: white;
+  font-weight: 900;
+  font-size: 17px;
+}
+
+.brand span, h1 span { color: var(--cyan); }
+
+main {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.screen {
+  max-width: 600px;
+  margin: 55px auto;
+  padding: 35px;
+  background: #101725dd;
+  border: 1px solid #26384c;
+  border-radius: 18px;
+  box-shadow: 0 20px 70px #0008;
+}
+
+#menu { text-align: center; }
+
+.eyebrow {
+  color: var(--cyan);
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+
+h1 {
+  font-size: clamp(48px, 10vw, 86px);
+  line-height: .95;
+  font-weight: 1000;
+  margin: 25px 0;
+  font-style: italic;
+}
+
+h2 { color: var(--cyan); }
+
+.subtitle { color: var(--muted); margin-bottom: 30px; }
+
+.menu-buttons {
+  max-width: 360px;
+  margin: auto;
+  display: grid;
+  gap: 12px;
+}
+
+button, input, select { font: inherit; }
+
+button {
+  border: 1px solid #34465c;
+  background: #172337;
+  color: white;
+  border-radius: 9px;
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: .15s;
+}
+
+button:hover {
+  border-color: var(--cyan);
+  transform: translateY(-1px);
+}
+
+button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+.primary {
+  background: var(--cyan);
+  color: #071019;
+  border-color: var(--cyan);
+}
+
+label {
+  display: grid;
+  gap: 9px;
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+input, select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #34465c;
+  border-radius: 8px;
+  padding: 10px;
+  background: #080f1b;
+  color: white;
+}
+
+input[type="color"] { height: 52px; padding: 4px; }
+
+#carPreview { font-size: 70px; margin: 25px; }
+
+.hidden { display: none !important; }
+
+#roomStatus, #tutorial p { color: var(--muted); line-height: 1.6; }
+
+#players { line-height: 2; }
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 0 auto 15px;
+  max-width: 900px;
+}
+
+.hud > div {
+  background: var(--panel);
+  border: 1px solid #26384c;
+  border-radius: 8px;
+  padding: 12px 8px;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.hud strong {
+  display: block;
+  color: var(--cyan);
+  font-size: 22px;
+  margin-top: 6px;
+}
+
+.race-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  background: #18231f;
+  border: 2px solid #324559;
+  border-radius: 10px;
+}
+
+.race-side {
+  width: 200px;
+  display: grid;
+  gap: 10px;
+}
+
+.race-side p { font-size: 13px; line-height: 1.5; }
+
+.accelerate { min-height: 85px; touch-action: none; }
+
+footer {
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  main { padding: 12px; }
+  .screen { padding: 24px 18px; margin: 25px auto; }
+  .race-layout { flex-direction: column; align-items: center; }
+  .race-side { width: 100%; max-width: 480px; }
+  .hud > div { font-size: 9px; }
+  .hud strong { font-size: 18px; }
+}
+
