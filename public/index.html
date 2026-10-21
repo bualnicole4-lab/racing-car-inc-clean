@@ -1,1 +1,112 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Racing Car Inc</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">RACING <span>CAR INC.</span></div>
+    <div id="connection">OFFLINE MODE</div>
+  </header>
+
+  <main>
+    <section id="menu" class="screen">
+      <p class="eyebrow">YOUR RACE. YOUR RULES.</p>
+      <h1>RACING<br><span>CAR INC.</span></h1>
+      <p class="subtitle">Dodge. Accelerate. Dominate.</p>
+
+      <div class="menu-buttons">
+        <button id="startBtn" class="primary">START RACE</button>
+        <button id="lobbyBtn">MULTIPLAYER LOBBY</button>
+        <button id="tutorialBtn">TUTORIAL</button>
+        <button id="settingsBtn">SETTINGS</button>
+      </div>
+    </section>
+
+    <section id="customize" class="screen hidden">
+      <h2>YOUR RACING MACHINE</h2>
+      <label>CAR NAME
+        <input id="carName" maxlength="20" value="Lightning">
+      </label>
+      <label>CAR COLOR
+        <input id="carColor" type="color" value="#00e5ff">
+      </label>
+      <div id="carPreview">ðŸŽï¸</div>
+      <button id="soloBtn" class="primary">RACE SOLO</button>
+<button id="lobbyContinue" class="primary">
+  CONTINUE TO MULTIPLAYER
+</button>
+<button id="customBack">BACK</button>
+    </section>
+
+    <section id="lobby" class="screen hidden">
+      <h2>MULTIPLAYER LOBBY</h2>
+      <p>Use the same room name to meet your opponent.</p>
+      <label>ROOM NAME
+        <input id="roomName" maxlength="24"
+          placeholder="e.g. NIGHTRACE22">
+      </label>
+      <button id="createBtn" class="primary">CREATE / JOIN ROOM</button>
+      <div id="roomStatus">Enter your car details first.</div>
+      <ul id="players"></ul>
+      <button id="lobbyBack">BACK</button>
+    </section>
+
+    <section id="tutorial" class="screen hidden">
+      <h2>HOW TO PLAY</h2>
+      <p>â† â†’ or A / D: Switch lanes.</p>
+      <p>HOLD ACCELERATE: Increase your speed.</p>
+      <p>Dodge red obstacles and collect golden stars.</p>
+      <p>Reach the finish line to complete the race.</p>
+      <button id="tutorialBack">GOT IT</button>
+    </section>
+
+    <section id="settings" class="screen hidden">
+      <h2>SETTINGS</h2>
+      <label>MASTER SOUND
+        <select id="soundSetting">
+          <option value="on">ON</option>
+          <option value="off">OFF</option>
+        </select>
+      </label>
+      <p>Race speed, time, lives and stars appear during gameplay.</p>
+      <button id="settingsBack">BACK</button>
+    </section>
+
+    <section id="race" class="hidden">
+      <div class="hud">
+        <div>SPEED <strong id="speed">0</strong></div>
+        <div>TIME <strong id="time">0.0</strong></div>
+        <div>LIVES <strong id="lives">3</strong></div>
+        <div>STARS <strong id="stars">0</strong></div>
+      </div>
+
+      <div class="race-layout">
+        <canvas id="gameCanvas" width="480" height="640"
+          aria-label="Racing game"></canvas>
+        <aside class="race-side">
+          <p id="raceMessage">READY TO RACE</p>
+          <p id="opponent">OPPONENT: WAITING</p>
+          <button id="accelerate" class="primary accelerate">
+            HOLD TO ACCELERATE
+          </button>
+          <button id="leftBtn">â—€ LEFT</button>
+          <button id="rightBtn">RIGHT â–¶</button>
+          <button id="pauseBtn">PAUSE</button>
+          <button id="restartBtn">RESTART</button>
+          <button id="homeBtn">MAIN MENU</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>RACING CAR INC. â€” BUILT FOR SPEED.</footer>
+</body>
+</html>
+
